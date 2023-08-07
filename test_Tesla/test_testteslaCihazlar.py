@@ -22,20 +22,12 @@ class TestTestteslaCihazlar():
   
   def test_testteslaCihazlar(self):
     self.driver.get("https://www.tesla.com/tr_tr")
-    self.driver.set_window_size(1536, 816)
-    WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((By.CSS_SELECTOR, ".tds-align--end > li:nth-child(2) .tds-site-nav-item-text")))
-    self.driver.find_element(By.CSS_SELECTOR, ".tds-align--end > li:nth-child(2) .tds-site-nav-item-text").click()
-    element = self.driver.find_element(By.CSS_SELECTOR, ".tds-align--end > li:nth-child(2) .tds-site-nav-item-text")
-    actions = ActionChains(self.driver)
-    actions.move_to_element(element).perform()
+    self.driver.set_window_size(1552, 832)
+    WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((By.CSS_SELECTOR, ".tcl-homepage-hero__content:nth-child(1)")))
+    WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((By.CSS_SELECTOR, "#dx-nav-item--energy > .tds-site-nav-item-text")))
+    self.driver.find_element(By.CSS_SELECTOR, "#dx-nav-item--energy > .tds-site-nav-item-text").click()
+    WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((By.LINK_TEXT, "Cihazlar")))
+    self.driver.find_element(By.LINK_TEXT, "Cihazlar").click()
+    WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((By.CSS_SELECTOR, ".tcl-hero__heading")))
+    self.driver.save_screenshot(f"{self.folderPath}/test-teslacihazlar.png")
     
-    WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((By.CSS_SELECTOR, ".tds-site-nav-items--vertical > li:nth-child(5) .tds-site-nav-item-text")))
-    self.driver.find_element(By.CSS_SELECTOR, ".tds-site-nav-items--vertical > li:nth-child(5) .tds-site-nav-item-text").click()
-    self.driver.save_screenshot(f"{self.folderPath}/test-Cihazlar.png")
-    
-    self.driver.execute_script("window.scrollTo(0,10000)")
-    WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((By.CSS_SELECTOR, ".tds-btn--primary")))
-    time.sleep(2)
-    self.driver.save_screenshot(f"{self.folderPath}/test-Cihazlar1.png")
-
-
